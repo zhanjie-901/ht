@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.CharEmpMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.CharEmp">
+    <!--@mbg.generated-->
+    <!--@Table charEmp-->
+    <id column="charEmpId" jdbcType="INTEGER" property="charempid" />
+    <result column="empId" jdbcType="VARCHAR" property="empid" />
+    <result column="characterId" jdbcType="INTEGER" property="characterid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    charEmpId, empId, characterId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from charEmp
+    where charEmpId = #{charempid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from charEmp
+    where charEmpId = #{charempid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="charEmpId" keyProperty="charempid" parameterType="com.ht.bean.CharEmp" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into charEmp (empId, characterId)
+    values (#{empid,jdbcType=VARCHAR}, #{characterid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="charEmpId" keyProperty="charempid" parameterType="com.ht.bean.CharEmp" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into charEmp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        empId,
+      </if>
+      <if test="characterid != null">
+        characterId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="characterid != null">
+        #{characterid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.CharEmp">
+    <!--@mbg.generated-->
+    update charEmp
+    <set>
+      <if test="empid != null">
+        empId = #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="characterid != null">
+        characterId = #{characterid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where charEmpId = #{charempid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.CharEmp">
+    <!--@mbg.generated-->
+    update charEmp
+    set empId = #{empid,jdbcType=VARCHAR},
+      characterId = #{characterid,jdbcType=INTEGER}
+    where charEmpId = #{charempid,jdbcType=INTEGER}
+  </update>
+</mapper>

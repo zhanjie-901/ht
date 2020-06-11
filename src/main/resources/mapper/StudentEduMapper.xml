@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.StudentEduMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.StudentEdu">
+    <!--@mbg.generated-->
+    <!--@Table studentEdu-->
+    <id column="eduid" jdbcType="INTEGER" property="eduid" />
+    <result column="stuId" jdbcType="INTEGER" property="stuid" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="begindate" jdbcType="VARCHAR" property="begindate" />
+    <result column="enddate" jdbcType="VARCHAR" property="enddate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    eduid, stuId, school, begindate, enddate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from studentEdu
+    where eduid = #{eduid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from studentEdu
+    where eduid = #{eduid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="eduid" keyProperty="eduid" parameterType="com.ht.bean.StudentEdu" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into studentEdu (stuId, school, begindate, 
+      enddate)
+    values (#{stuid,jdbcType=INTEGER}, #{school,jdbcType=VARCHAR}, #{begindate,jdbcType=VARCHAR}, 
+      #{enddate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="eduid" keyProperty="eduid" parameterType="com.ht.bean.StudentEdu" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into studentEdu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stuid != null">
+        stuId,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="begindate != null">
+        begindate,
+      </if>
+      <if test="enddate != null">
+        enddate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stuid != null">
+        #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="begindate != null">
+        #{begindate,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.StudentEdu">
+    <!--@mbg.generated-->
+    update studentEdu
+    <set>
+      <if test="stuid != null">
+        stuId = #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="begindate != null">
+        begindate = #{begindate,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        enddate = #{enddate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where eduid = #{eduid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.StudentEdu">
+    <!--@mbg.generated-->
+    update studentEdu
+    set stuId = #{stuid,jdbcType=INTEGER},
+      school = #{school,jdbcType=VARCHAR},
+      begindate = #{begindate,jdbcType=VARCHAR},
+      enddate = #{enddate,jdbcType=VARCHAR}
+    where eduid = #{eduid,jdbcType=INTEGER}
+  </update>
+</mapper>

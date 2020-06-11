@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.CharModuleMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.CharModule">
+    <!--@mbg.generated-->
+    <!--@Table charModule-->
+    <id column="charModuleId" jdbcType="INTEGER" property="charmoduleid" />
+    <result column="moduleId" jdbcType="INTEGER" property="moduleid" />
+    <result column="characterId" jdbcType="INTEGER" property="characterid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    charModuleId, moduleId, characterId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from charModule
+    where charModuleId = #{charmoduleid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from charModule
+    where charModuleId = #{charmoduleid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="charModuleId" keyProperty="charmoduleid" parameterType="com.ht.bean.CharModule" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into charModule (moduleId, characterId)
+    values (#{moduleid,jdbcType=INTEGER}, #{characterid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="charModuleId" keyProperty="charmoduleid" parameterType="com.ht.bean.CharModule" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into charModule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        moduleId,
+      </if>
+      <if test="characterid != null">
+        characterId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="characterid != null">
+        #{characterid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.CharModule">
+    <!--@mbg.generated-->
+    update charModule
+    <set>
+      <if test="moduleid != null">
+        moduleId = #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="characterid != null">
+        characterId = #{characterid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where charModuleId = #{charmoduleid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.CharModule">
+    <!--@mbg.generated-->
+    update charModule
+    set moduleId = #{moduleid,jdbcType=INTEGER},
+      characterId = #{characterid,jdbcType=INTEGER}
+    where charModuleId = #{charmoduleid,jdbcType=INTEGER}
+  </update>
+</mapper>

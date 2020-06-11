@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.CharactersMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Characters">
+    <!--@mbg.generated-->
+    <!--@Table characters-->
+    <id column="characterId" jdbcType="INTEGER" property="characterid" />
+    <result column="characterName" jdbcType="VARCHAR" property="charactername" />
+    <result column="postId" jdbcType="INTEGER" property="postid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    characterId, characterName, postId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from characters
+    where characterId = #{characterid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from characters
+    where characterId = #{characterid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="characterId" keyProperty="characterid" parameterType="com.ht.bean.Characters" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into characters (characterName, postId)
+    values (#{charactername,jdbcType=VARCHAR}, #{postid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="characterId" keyProperty="characterid" parameterType="com.ht.bean.Characters" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into characters
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="charactername != null">
+        characterName,
+      </if>
+      <if test="postid != null">
+        postId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="charactername != null">
+        #{charactername,jdbcType=VARCHAR},
+      </if>
+      <if test="postid != null">
+        #{postid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Characters">
+    <!--@mbg.generated-->
+    update characters
+    <set>
+      <if test="charactername != null">
+        characterName = #{charactername,jdbcType=VARCHAR},
+      </if>
+      <if test="postid != null">
+        postId = #{postid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where characterId = #{characterid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Characters">
+    <!--@mbg.generated-->
+    update characters
+    set characterName = #{charactername,jdbcType=VARCHAR},
+      postId = #{postid,jdbcType=INTEGER}
+    where characterId = #{characterid,jdbcType=INTEGER}
+  </update>
+</mapper>

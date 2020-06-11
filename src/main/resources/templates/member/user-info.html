@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="utf-8">
     <title>基本资料</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../../css/oksub.css">
+    <link rel="stylesheet" th:href="@{../../css/oksub.css}">
 </head>
 <body class="user-info">
     <form class="layui-form">
@@ -47,7 +47,7 @@
             </div>
         </div>
     </form>
-    <script type="text/javascript" src="../../lib/layui/layui.js"></script>
-    <script type="text/javascript" src="user-info.js"></script>
+    <script type="text/javascript" th:src="@{../lib/layui/layui.js}"></script>
+    <script type="text/javascript" th:src="@{user-info.js}"></script>
 </body>
 </html>

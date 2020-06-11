@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.FeedbackMsgMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.FeedbackMsg">
+    <!--@mbg.generated-->
+    <!--@Table feedbackMsg-->
+    <id column="feedbackMsgId" jdbcType="INTEGER" property="feedbackmsgid" />
+    <result column="feedbackMsgName" jdbcType="VARCHAR" property="feedbackmsgname" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="msgType" jdbcType="INTEGER" property="msgtype" />
+    <result column="singDate" jdbcType="TIMESTAMP" property="singdate" />
+    <result column="feedbackId" jdbcType="INTEGER" property="feedbackid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    feedbackMsgId, feedbackMsgName, userId, userName, msgType, singDate, feedbackId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from feedbackMsg
+    where feedbackMsgId = #{feedbackmsgid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from feedbackMsg
+    where feedbackMsgId = #{feedbackmsgid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="feedbackMsgId" keyProperty="feedbackmsgid" parameterType="com.ht.bean.FeedbackMsg" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into feedbackMsg (feedbackMsgName, userId, userName, 
+      msgType, singDate, feedbackId
+      )
+    values (#{feedbackmsgname,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{msgtype,jdbcType=INTEGER}, #{singdate,jdbcType=TIMESTAMP}, #{feedbackid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="feedbackMsgId" keyProperty="feedbackmsgid" parameterType="com.ht.bean.FeedbackMsg" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into feedbackMsg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="feedbackmsgname != null">
+        feedbackMsgName,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="msgtype != null">
+        msgType,
+      </if>
+      <if test="singdate != null">
+        singDate,
+      </if>
+      <if test="feedbackid != null">
+        feedbackId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="feedbackmsgname != null">
+        #{feedbackmsgname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtype != null">
+        #{msgtype,jdbcType=INTEGER},
+      </if>
+      <if test="singdate != null">
+        #{singdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feedbackid != null">
+        #{feedbackid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.FeedbackMsg">
+    <!--@mbg.generated-->
+    update feedbackMsg
+    <set>
+      <if test="feedbackmsgname != null">
+        feedbackMsgName = #{feedbackmsgname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtype != null">
+        msgType = #{msgtype,jdbcType=INTEGER},
+      </if>
+      <if test="singdate != null">
+        singDate = #{singdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feedbackid != null">
+        feedbackId = #{feedbackid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where feedbackMsgId = #{feedbackmsgid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.FeedbackMsg">
+    <!--@mbg.generated-->
+    update feedbackMsg
+    set feedbackMsgName = #{feedbackmsgname,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
+      msgType = #{msgtype,jdbcType=INTEGER},
+      singDate = #{singdate,jdbcType=TIMESTAMP},
+      feedbackId = #{feedbackid,jdbcType=INTEGER}
+    where feedbackMsgId = #{feedbackmsgid,jdbcType=INTEGER}
+  </update>
+</mapper>

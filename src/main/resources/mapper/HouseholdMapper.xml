@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.HouseholdMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Household">
+    <!--@mbg.generated-->
+    <!--@Table household-->
+    <id column="cityId" jdbcType="INTEGER" property="cityid" />
+    <result column="cityname" jdbcType="VARCHAR" property="cityname" />
+    <result column="citytype" jdbcType="VARCHAR" property="citytype" />
+    <result column="py" jdbcType="VARCHAR" property="py" />
+    <result column="wb" jdbcType="VARCHAR" property="wb" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cityId, cityname, citytype, py, wb
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from household
+    where cityId = #{cityid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from household
+    where cityId = #{cityid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="cityId" keyProperty="cityid" parameterType="com.ht.bean.Household" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into household (cityname, citytype, py, 
+      wb)
+    values (#{cityname,jdbcType=VARCHAR}, #{citytype,jdbcType=VARCHAR}, #{py,jdbcType=VARCHAR}, 
+      #{wb,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="cityId" keyProperty="cityid" parameterType="com.ht.bean.Household" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into household
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityname != null">
+        cityname,
+      </if>
+      <if test="citytype != null">
+        citytype,
+      </if>
+      <if test="py != null">
+        py,
+      </if>
+      <if test="wb != null">
+        wb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityname != null">
+        #{cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="citytype != null">
+        #{citytype,jdbcType=VARCHAR},
+      </if>
+      <if test="py != null">
+        #{py,jdbcType=VARCHAR},
+      </if>
+      <if test="wb != null">
+        #{wb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Household">
+    <!--@mbg.generated-->
+    update household
+    <set>
+      <if test="cityname != null">
+        cityname = #{cityname,jdbcType=VARCHAR},
+      </if>
+      <if test="citytype != null">
+        citytype = #{citytype,jdbcType=VARCHAR},
+      </if>
+      <if test="py != null">
+        py = #{py,jdbcType=VARCHAR},
+      </if>
+      <if test="wb != null">
+        wb = #{wb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cityId = #{cityid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Household">
+    <!--@mbg.generated-->
+    update household
+    set cityname = #{cityname,jdbcType=VARCHAR},
+      citytype = #{citytype,jdbcType=VARCHAR},
+      py = #{py,jdbcType=VARCHAR},
+      wb = #{wb,jdbcType=VARCHAR}
+    where cityId = #{cityid,jdbcType=INTEGER}
+  </update>
+</mapper>

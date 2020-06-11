@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.ClassTeacherMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.ClassTeacher">
+    <!--@mbg.generated-->
+    <!--@Table classTeacher-->
+    <id column="classTeacherId" jdbcType="INTEGER" property="classteacherid" />
+    <result column="empId" jdbcType="VARCHAR" property="empid" />
+    <result column="classId" jdbcType="INTEGER" property="classid" />
+    <result column="teacherType" jdbcType="INTEGER" property="teachertype" />
+    <result column="courseId" jdbcType="INTEGER" property="courseid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    classTeacherId, empId, classId, teacherType, courseId, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from classTeacher
+    where classTeacherId = #{classteacherid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from classTeacher
+    where classTeacherId = #{classteacherid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="classTeacherId" keyProperty="classteacherid" parameterType="com.ht.bean.ClassTeacher" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into classTeacher (empId, classId, teacherType, 
+      courseId, `status`)
+    values (#{empid,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}, #{teachertype,jdbcType=INTEGER}, 
+      #{courseid,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="classTeacherId" keyProperty="classteacherid" parameterType="com.ht.bean.ClassTeacher" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into classTeacher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        empId,
+      </if>
+      <if test="classid != null">
+        classId,
+      </if>
+      <if test="teachertype != null">
+        teacherType,
+      </if>
+      <if test="courseid != null">
+        courseId,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="teachertype != null">
+        #{teachertype,jdbcType=INTEGER},
+      </if>
+      <if test="courseid != null">
+        #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.ClassTeacher">
+    <!--@mbg.generated-->
+    update classTeacher
+    <set>
+      <if test="empid != null">
+        empId = #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        classId = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="teachertype != null">
+        teacherType = #{teachertype,jdbcType=INTEGER},
+      </if>
+      <if test="courseid != null">
+        courseId = #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where classTeacherId = #{classteacherid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.ClassTeacher">
+    <!--@mbg.generated-->
+    update classTeacher
+    set empId = #{empid,jdbcType=VARCHAR},
+      classId = #{classid,jdbcType=INTEGER},
+      teacherType = #{teachertype,jdbcType=INTEGER},
+      courseId = #{courseid,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER}
+    where classTeacherId = #{classteacherid,jdbcType=INTEGER}
+  </update>
+</mapper>

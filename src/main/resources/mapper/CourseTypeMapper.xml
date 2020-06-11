@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.CourseTypeMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.CourseType">
+    <!--@mbg.generated-->
+    <!--@Table courseType-->
+    <id column="courseTypeId" jdbcType="INTEGER" property="coursetypeid" />
+    <result column="courseTypeName" jdbcType="VARCHAR" property="coursetypename" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    courseTypeId, courseTypeName, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from courseType
+    where courseTypeId = #{coursetypeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from courseType
+    where courseTypeId = #{coursetypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="courseTypeId" keyProperty="coursetypeid" parameterType="com.ht.bean.CourseType" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into courseType (courseTypeName, remark)
+    values (#{coursetypename,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="courseTypeId" keyProperty="coursetypeid" parameterType="com.ht.bean.CourseType" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into courseType
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="coursetypename != null">
+        courseTypeName,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="coursetypename != null">
+        #{coursetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.CourseType">
+    <!--@mbg.generated-->
+    update courseType
+    <set>
+      <if test="coursetypename != null">
+        courseTypeName = #{coursetypename,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where courseTypeId = #{coursetypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.CourseType">
+    <!--@mbg.generated-->
+    update courseType
+    set courseTypeName = #{coursetypename,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where courseTypeId = #{coursetypeid,jdbcType=INTEGER}
+  </update>
+</mapper>

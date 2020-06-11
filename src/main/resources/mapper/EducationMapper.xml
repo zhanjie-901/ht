@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.EducationMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Education">
+    <!--@mbg.generated-->
+    <!--@Table education-->
+    <id column="collegeid" jdbcType="INTEGER" property="collegeid" />
+    <result column="Empid" jdbcType="INTEGER" property="empid" />
+    <result column="collegeName" jdbcType="VARCHAR" property="collegename" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="startDate" jdbcType="TIMESTAMP" property="startdate" />
+    <result column="endDate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    collegeid, Empid, collegeName, `degree`, startDate, endDate, Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from education
+    where collegeid = #{collegeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from education
+    where collegeid = #{collegeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="collegeid" keyProperty="collegeid" parameterType="com.ht.bean.Education" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into education (Empid, collegeName, `degree`, 
+      startDate, endDate, Remark
+      )
+    values (#{empid,jdbcType=INTEGER}, #{collegename,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, 
+      #{startdate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="collegeid" keyProperty="collegeid" parameterType="com.ht.bean.Education" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into education
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        Empid,
+      </if>
+      <if test="collegename != null">
+        collegeName,
+      </if>
+      <if test="degree != null">
+        `degree`,
+      </if>
+      <if test="startdate != null">
+        startDate,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="collegename != null">
+        #{collegename,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Education">
+    <!--@mbg.generated-->
+    update education
+    <set>
+      <if test="empid != null">
+        Empid = #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="collegename != null">
+        collegeName = #{collegename,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        `degree` = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        startDate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where collegeid = #{collegeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Education">
+    <!--@mbg.generated-->
+    update education
+    set Empid = #{empid,jdbcType=INTEGER},
+      collegeName = #{collegename,jdbcType=VARCHAR},
+      `degree` = #{degree,jdbcType=VARCHAR},
+      startDate = #{startdate,jdbcType=TIMESTAMP},
+      endDate = #{enddate,jdbcType=TIMESTAMP},
+      Remark = #{remark,jdbcType=VARCHAR}
+    where collegeid = #{collegeid,jdbcType=INTEGER}
+  </update>
+</mapper>

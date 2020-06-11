@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.FeedbackMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Feedback">
+    <!--@mbg.generated-->
+    <!--@Table feedback-->
+    <id column="feedbackId" jdbcType="INTEGER" property="feedbackid" />
+    <result column="feedBackType" jdbcType="INTEGER" property="feedbacktype" />
+    <result column="empId" jdbcType="VARCHAR" property="empid" />
+    <result column="empname" jdbcType="VARCHAR" property="empname" />
+    <result column="feedbackTime" jdbcType="TIMESTAMP" property="feedbacktime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="depId" jdbcType="INTEGER" property="depid" />
+    <result column="opinion" jdbcType="VARCHAR" property="opinion" />
+    <result column="userId" jdbcType="INTEGER" property="userid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    feedbackId, feedBackType, empId, empname, feedbackTime, remark, image, `status`, 
+    depId, opinion, userId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from feedback
+    where feedbackId = #{feedbackid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from feedback
+    where feedbackId = #{feedbackid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="feedbackId" keyProperty="feedbackid" parameterType="com.ht.bean.Feedback" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into feedback (feedBackType, empId, empname, 
+      feedbackTime, remark, image, 
+      `status`, depId, opinion, 
+      userId)
+    values (#{feedbacktype,jdbcType=INTEGER}, #{empid,jdbcType=VARCHAR}, #{empname,jdbcType=VARCHAR}, 
+      #{feedbacktime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{depid,jdbcType=INTEGER}, #{opinion,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="feedbackId" keyProperty="feedbackid" parameterType="com.ht.bean.Feedback" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into feedback
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="feedbacktype != null">
+        feedBackType,
+      </if>
+      <if test="empid != null">
+        empId,
+      </if>
+      <if test="empname != null">
+        empname,
+      </if>
+      <if test="feedbacktime != null">
+        feedbackTime,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="depid != null">
+        depId,
+      </if>
+      <if test="opinion != null">
+        opinion,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="feedbacktype != null">
+        #{feedbacktype,jdbcType=INTEGER},
+      </if>
+      <if test="empid != null">
+        #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="empname != null">
+        #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbacktime != null">
+        #{feedbacktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="depid != null">
+        #{depid,jdbcType=INTEGER},
+      </if>
+      <if test="opinion != null">
+        #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Feedback">
+    <!--@mbg.generated-->
+    update feedback
+    <set>
+      <if test="feedbacktype != null">
+        feedBackType = #{feedbacktype,jdbcType=INTEGER},
+      </if>
+      <if test="empid != null">
+        empId = #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="empname != null">
+        empname = #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="feedbacktime != null">
+        feedbackTime = #{feedbacktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="depid != null">
+        depId = #{depid,jdbcType=INTEGER},
+      </if>
+      <if test="opinion != null">
+        opinion = #{opinion,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where feedbackId = #{feedbackid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Feedback">
+    <!--@mbg.generated-->
+    update feedback
+    set feedBackType = #{feedbacktype,jdbcType=INTEGER},
+      empId = #{empid,jdbcType=VARCHAR},
+      empname = #{empname,jdbcType=VARCHAR},
+      feedbackTime = #{feedbacktime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      depId = #{depid,jdbcType=INTEGER},
+      opinion = #{opinion,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=INTEGER}
+    where feedbackId = #{feedbackid,jdbcType=INTEGER}
+  </update>
+</mapper>

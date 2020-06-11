@@ -1,46 +1,64 @@
 [
     {
-        "title": "控制台",
-        "href": "pages/console.html",
+        "title": "主界面",
+        "href": "/ht/console",
         "fontFamily": "ok-icon",
-        "icon": "&#xe654;",
+        "icon": "&#xe6b8;",
         "spread": true,
         "isCheck": true
     },
     {
-        "title": "控制台示例",
+        "title": "文件管理",
         "href": "",
         "fontFamily": "ok-icon",
-        "icon": "&#xe6b8;",
+        "icon": "&#xe621;",
         "children": [
             {
-                "title": "控制台一",
-                "href": "pages/console1.html",
-                "icon": "&#xe68e;"
+                "title": "资料文档",
+                "href": "/ht/tologin",
+                "icon": "&#xe621;"
             }
         ]
     },
     {
-        "title": "会员管理",
+        "title": "员工管理",
         "href": "",
         "icon": "&#xe66f;",
         "spread": false,
         "children": [
             {
-                "title": "用户列表",
-                "href": "pages/member/user.html",
+                "title": "部门管理",
+                "href": "templates/member/user.html",
                 "fontFamily": "layui-icon",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "角色列表",
-                "href": "pages/member/role.html",
+                "title": "员工资料",
+                "href": "templates/member/role.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "权限列表",
+                "title": "周报管理",
+                "href": "templates/member/permission.html",
+                "icon": "&#xe62e;",
+                "spread": false
+            },
+            {
+                "title": "请假管理",
+                "href": "templates/member/permission.html",
+                "icon": "&#xe62e;",
+                "spread": false
+            },
+            {
+                "title": "考勤管理",
+                "href": "pages/member/permission.html",
+                "icon": "&#xe62e;",
+                "spread": false
+            },
+            {
+                "title": "谈心记录",
                 "href": "pages/member/permission.html",
                 "icon": "&#xe62e;",
                 "spread": false
@@ -48,237 +66,117 @@
         ]
     },
     {
-        "title": "图表管理",
+        "title": "学生管理",
         "href": "",
-        "icon": "&#xe62c;",
+        "icon": "&#xe770;",
         "spread": false,
         "children": [
             {
-                "title": "地图",
-                "fontFamily": "ok-icon",
-                "icon": "&#xe882;",
-                "spread": false,
-                "children": [
-                    {
-                        "title": "中国地图",
-                        "href": "pages/chart/chart-china.html",
-                        "icon": "&#xe62e;",
-                        "spread": false
-                    },
-                    {
-                        "title": "区域地图",
-                        "href": "pages/chart/chart-area.html",
-                        "icon": "&#xe62e;",
-                        "spread": false
-                    }
-                ]
-            },
-            {
-                "title": "数据图",
-                "fontFamily": "ok-icon",
-                "icon": "ok-icon-shuju1",
-                "spread": false,
-                "children": [
-                    {
-                        "title": "统计图",
-                        "href": "pages/chart/chart1.html",
-                        "icon": "&#xe62e;",
-                        "spread": false
-                    },
-                    {
-                        "title": "折线图",
-                        "href": "pages/chart/chart2.html",
-                        "icon": "&#xe62e;",
-                        "spread": false
-                    },
-                    {
-                        "title": "馅饼图",
-                        "href": "pages/chart/chart4.html",
-                        "icon": "&#xe62e;",
-                        "spread": false
-                    },
-                    {
-                        "title": "圆形图",
-                        "href": "pages/chart/chart5.html",
-                        "icon": "&#xe62e;",
-                        "spread": false
-                    },
-                    {
-                        "title": "指数图",
-                        "href": "pages/chart/chart6.html",
-                        "icon": "&#xe62e;",
-                        "spread": false
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "title": "常用页面",
-        "href": "",
-        "icon": "&#xe705;",
-        "spread": false,
-        "children": [
-            {
-                "title": "文章列表",
+                "title": "班级管理",
                 "href": "pages/often/article.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "留言列表",
+                "title": "楼栋管理",
                 "href": "pages/often/message.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "产品列表",
+                "title": "宿舍管理",
                 "href": "pages/often/product.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "下载列表",
+                "title": "学生资料",
                 "href": "pages/often/download.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "链接列表",
+                "title": "考试成绩",
                 "href": "pages/often/link.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "任务列表",
+                "title": "答辩成绩",
                 "href": "pages/often/task.html",
                 "icon": "&#xe62e;",
                 "spread": false
-            },
-            {
-                "title": "图片列表",
-                "href": "pages/often/image.html",
-                "icon": "&#xe62e;",
-                "spread": false
-            },
-			{
-			    "title": "帖子列表",
-			    "href": "pages/often/bbs.html",
-			    "icon": "&#xe62e;",
-			    "spread": false
-			}
+            }
         ]
     },
     {
-        "title": "系统管理",
+        "title": "教务管理",
         "href": "",
         "fontFamily": "ok-icon",
-        "icon": "&#xe68a;",
+        "icon": "&#xe621;",
         "spread": false,
         "children": [
             {
-                "title": "系统设置",
+                "title": "课程类别",
                 "href": "pages/system/setup.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "日志列表",
+                "title": "课程管理",
                 "href": "pages/system/log.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "屏蔽词",
+                "title": "试讲培训",
                 "href": "pages/system/shield.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "登录页面",
+                "title": "值班管理",
                 "href": "pages/login.html",
                 "icon": "&#xe609;",
                 "spread": false,
                 "target": "_blank"
-            },
-            {
-                "title": "403页面",
-                "href": "pages/system/403.html",
-                "icon": "&#xe61c;",
-                "spread": false
-            },
-            {
-                "title": "404页面",
-                "href": "pages/system/404.html",
-                "icon": "&#xe61c;",
-                "spread": false
-            },
-            {
-                "title": "500页面",
-                "href": "pages/system/500.html",
-                "icon": "&#xe61c;",
-                "spread": false
             }
         ]
     },
     {
-        "title": "文本编辑",
+        "title": "后勤管理",
         "href": "",
         "icon": "&#xe636;",
         "spread": false,
         "children": [
             {
-                "title": "UEditor",
+                "title": "报修申请",
                 "href": "pages/txtedit/UEditor.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "Neditor",
+                "title": "维修管理",
                 "href": "pages/txtedit/Neditor.html",
-                "icon": "&#xe62e;",
-                "spread": false
-            },
-            {
-                "title": "TinyMCE",
-                "href": "pages/txtedit/TinyMCE.html",
-                "icon": "&#xe62e;",
-                "spread": false
-            },
-            {
-                "title": "wangEditor",
-                "href": "pages/txtedit/wangEditor.html",
-                "icon": "&#xe62e;",
-                "spread": false
-            },
-            {
-                "title": "CKEditor",
-                "href": "pages/txtedit/CKEditor.html",
-                "icon": "&#xe62e;",
-                "spread": false
-            },
-            {
-                "title": "layedit",
-                "href": "pages/txtedit/layedit.html",
                 "icon": "&#xe62e;",
                 "spread": false
             }
         ]
     },
     {
-        "title": "数据表格",
+        "title": "考核管理",
         "href": "",
         "icon": "&#xe62d;",
         "spread": false,
         "children": [
             {
-                "title": "Datatables",
+                "title": "考核指标",
                 "href": "http://www.datatables.club",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "jQuery.bsgrid",
+                "title": "考核录入",
                 "href": "http://thebestofyouth.com/bsgrid",
                 "icon": "&#xe62e;",
                 "spread": false
@@ -286,128 +184,54 @@
         ]
     },
     {
-        "title": "多级导航",
-        "fontFamily": "ok-icon",
-        "icon": "&#xe7a7;",
+        "title": "系统报表",
+        "href": "",
+        "icon": "&#xe62d;",
         "spread": false,
         "children": [
             {
-                "title": "购物网站",
-                "href": "",
-                "icon": "&#xe658;",
-                "spread": false,
-                "children": [
-                    {
-                        "title": "京东",
-                        "href": "https://www.jd.com",
-                        "icon": "&#xe600;",
-                        "spread": false
-                    },
-                    {
-                        "title": "苏宁",
-                        "href": "https://www.suning.com",
-                        "icon": "&#xe600;",
-                        "spread": false
-                    },
-                    {
-                        "title": "阿里",
-                        "href": "",
-                        "icon": "&#xe658;",
-                        "spread": false,
-                        "children": [
-                            {
-                                "title": "淘宝",
-                                "href": "https://www.taobao.com",
-                                "icon": "&#xe600;",
-                                "spread": false
-                            },
-                            {
-                                "title": "天猫",
-                                "href": "https://www.tmall.com",
-                                "icon": "&#xe658;",
-                                "spread": false,
-                                "children": [
-                                    {
-                                        "title": "天猫超市",
-                                        "href": "https://chaoshi.tmall.com",
-                                        "icon": "&#xe600;",
-                                        "spread": false
-                                    },
-                                    {
-                                        "title": "天猫电器",
-                                        "href": "https://3c.tmall.com",
-                                        "icon": "&#xe600;",
-                                        "spread": false
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
+                "title": "日常考核",
+                "href": "http://www.datatables.club",
+                "icon": "&#xe62e;",
+                "spread": false
+            },
+            {
+                "title": "员工请假",
+                "href": "http://thebestofyouth.com/bsgrid",
+                "icon": "&#xe62e;",
+                "spread": false
+            },
+            {
+                "title": "未打卡说明",
+                "href": "http://thebestofyouth.com/bsgrid",
+                "icon": "&#xe62e;",
+                "spread": false
+            },
+            {
+                "title": "宿舍统计报表",
+                "href": "http://thebestofyouth.com/bsgrid",
+                "icon": "&#xe62e;",
+                "spread": false
             }
         ]
     },
     {
-        "title": "框架使用",
+        "title": "系统设置",
         "fontFamily": "ok-icon",
-        "icon": "ok-icon-yooxi",
+        "icon": "layui-icon-set",
         "spread": false,
         "children": [
             {
-                "title": "字体图标",
+                "title": "权限管理",
                 "href": "pages/help/ok_font.html",
                 "icon": "&#xe62e;",
                 "spread": false
             },
             {
-                "title": "插件目录",
+                "title": "流程管理",
                 "href": "pages/help/plug_directory.html",
                 "icon": "&#xe62e;",
                 "spread": false
-            },
-            {
-                "title": "内部添加导航",
-                "href": "pages/help/nav_operate.html",
-                "icon": "&#xe62e;",
-                "spread": false
-            },
-            {
-                "title": "导航的图标",
-                "href": "pages/help/nav_icon.html",
-                "icon": "&#xe62e;",
-                "spread": false
-            },
-            {
-                "title": "导航的参数",
-                "href": "pages/help/nav_parameter.html",
-                "icon": "&#xe62e;",
-                "spread": false
-            }
-        ]
-    },
-    {
-        "title": "第三方库",
-        "icon": "&#xe674;",
-        "children": [
-            {
-                "title": "jquery.qrcode.js",
-                "href": "pages/tripartite/qrcode.html"
-            },
-            {
-                "title": "jquery.countup.js",
-                "href": "pages/tripartite/countup.html"
-            },
-            {
-                "title": "toastr.js",
-                "href": "pages/tripartite/countup.html"
-            },
-            {
-                "title": "SweetAlert2.js",
-                "href": "pages/tripartite/countup.html"
-            },
-            {
-                "title": "Animate.css",
-                "href": "https://daneden.github.io/animate.css"
             }
         ]
     }

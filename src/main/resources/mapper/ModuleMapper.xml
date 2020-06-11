@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.ModuleMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Module">
+    <!--@mbg.generated-->
+    <!--@Table Module-->
+    <id column="moduleId" jdbcType="INTEGER" property="moduleid" />
+    <result column="moduleName" jdbcType="VARCHAR" property="modulename" />
+    <result column="root" jdbcType="INTEGER" property="root" />
+    <result column="controller" jdbcType="VARCHAR" property="controller" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    moduleId, moduleName, root, controller
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Module
+    where moduleId = #{moduleid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from Module
+    where moduleId = #{moduleid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ht.bean.Module">
+    <!--@mbg.generated-->
+    insert into Module (moduleId, moduleName, root, 
+      controller)
+    values (#{moduleid,jdbcType=INTEGER}, #{modulename,jdbcType=VARCHAR}, #{root,jdbcType=INTEGER}, 
+      #{controller,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.bean.Module">
+    <!--@mbg.generated-->
+    insert into Module
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        moduleId,
+      </if>
+      <if test="modulename != null">
+        moduleName,
+      </if>
+      <if test="root != null">
+        root,
+      </if>
+      <if test="controller != null">
+        controller,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="modulename != null">
+        #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="root != null">
+        #{root,jdbcType=INTEGER},
+      </if>
+      <if test="controller != null">
+        #{controller,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Module">
+    <!--@mbg.generated-->
+    update Module
+    <set>
+      <if test="modulename != null">
+        moduleName = #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="root != null">
+        root = #{root,jdbcType=INTEGER},
+      </if>
+      <if test="controller != null">
+        controller = #{controller,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where moduleId = #{moduleid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Module">
+    <!--@mbg.generated-->
+    update Module
+    set moduleName = #{modulename,jdbcType=VARCHAR},
+      root = #{root,jdbcType=INTEGER},
+      controller = #{controller,jdbcType=VARCHAR}
+    where moduleId = #{moduleid,jdbcType=INTEGER}
+  </update>
+</mapper>

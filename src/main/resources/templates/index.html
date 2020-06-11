@@ -54,7 +54,7 @@
                     <li class="no-line layui-nav-item">
                         <a href="javascript:">
                             <img th:src="@{../images/avatar.png}" class="layui-nav-img">
-                            bobi
+                            <h7 class="empname" th:text="${article.empname}"></h7>
                         </a>
                         <dl id="userInfo" class="layui-nav-child">
                             <dd><a lay-id="u-1" href="javascript:" data-url="" th:src="@{/ht/user}">个人中心<span class="layui-badge-dot"></span></a></dd>
@@ -63,7 +63,7 @@
                             <dd>
                                 <hr/>
                             </dd>
-                            <dd><a href="javascript:void(0)" id="logout">退出登录</a></dd>
+                            <dd><a th:href="@{/ht/tologin}" id="logout">退出登录</a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -78,75 +78,75 @@
                         <a class="img" title="我的头像">
                             <img th:src="@{../images/avatar.png}" class="userAvatar">
                         </a>
-                        <p>你好！<span class="userName">bobi</span>, 欢迎登录</p>
+                        <p>你好！<span class="userName"><h7 class="empname" th:text="${article.empname}"></h7></span>, 欢迎登录</p>
                     </div>
                     <!--左侧导航菜单-->
                     <ul id="navBar" class="layui-nav okadmin-nav okadmin-bg-20222A layui-nav-tree">
                         <li class="layui-nav-item layui-nav-itemed">
-                            <a class="" href="javascript:;">员工管理</a>
+                            <a class="" href="javascript:;"></a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;">部门管理</a></dd>
-                                <dd><a href="javascript:;">员工资料</a></dd>
-                                <dd><a href="javascript:;">周报管理</a></dd>
-                                <dd><a href="javascript:;">请假管理</a></dd>
-                                <dd><a href="javascript:;">考勤管理</a></dd>
-                                <dd><a href="">谈心记录</a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href=""></a></dd>
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="javascript:;">学生管理</a>
+                            <a href="javascript:;"></a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;">班级管理</a></dd>
-                                <dd><a href="javascript:;">楼栋管理</a></dd>
-                                <dd><a href="javascript:;">宿舍管理</a></dd>
-                                <dd><a href="javascript:;">学生资料</a></dd>
-                                <dd><a href="javascript:;">考试成绩</a></dd>
-                                <dd><a href="">答辩成绩</a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href=""></a></dd>
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="javascript:;">教务管理</a>
+                            <a href="javascript:;"></a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;">课程类别</a></dd>
-                                <dd><a href="javascript:;">课程管理</a></dd>
-                                <dd><a href="javascript:;">试讲培训</a></dd>
-                                <dd><a href="javascript:;">值班管理</a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                        <a href="javascript:;">后勤管理</a>
+                        <a href="javascript:;"></a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">报修申请</a></dd>
-                            <dd><a href="javascript:;">维修管理</a></dd>
+                            <dd><a href="javascript:;"></a></dd>
+                            <dd><a href="javascript:;"></a></dd>
                         </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="javascript:;">考核管理</a>
+                            <a href="javascript:;"></a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;">考核指标</a></dd>
-                                <dd><a href="javascript:;">考核录入</a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="javascript:;">文件管理</a>
+                            <a href="javascript:;"></a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;">资料文档</a></dd>
+                                <dd><a href="javascript:;"></a></dd>
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="javascript:;">系统报表</a>
+                            <a href="javascript:;"></a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;">日常考核</a></dd>
-                                <dd><a href="javascript:;">员工请假</a></dd>
-                                <dd><a href="javascript:;">未打卡说明</a></dd>
-                                <dd><a href="javascript:;">宿舍统计报表</a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="javascript:;">系统设置</a>
+                            <a href="javascript:;"></a>
                             <dl class="layui-nav-child">
-                                <dd><a href="javascript:;">权限管理</a></dd>
-                                <dd><a href="javascript:;">流程管理</a></dd>
+                                <dd><a href="javascript:;"></a></dd>
+                                <dd><a href="javascript:;"></a></dd>
                             </dl>
                         </li>
                     </ul>
@@ -174,7 +174,7 @@
                     <ul id="tabTitle" class="layui-tab-title ok-tab-title not-scroll">
                         <li class="layui-this" lay-id="1" tab="index">
                             <i class="ok-icon">&#xe654;</i>
-                            <cite is-close=false>控制台</cite>
+                            <cite is-close=false></cite>
                         </li>
                     </ul>
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.StuStatusSetMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.StuStatusSet">
+    <!--@mbg.generated-->
+    <!--@Table stuStatusSet-->
+    <id column="statusId" jdbcType="INTEGER" property="statusid" />
+    <result column="statusName" jdbcType="VARCHAR" property="statusname" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    statusId, statusName, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from stuStatusSet
+    where statusId = #{statusid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from stuStatusSet
+    where statusId = #{statusid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="statusId" keyProperty="statusid" parameterType="com.ht.bean.StuStatusSet" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into stuStatusSet (statusName, remark)
+    values (#{statusname,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="statusId" keyProperty="statusid" parameterType="com.ht.bean.StuStatusSet" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into stuStatusSet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="statusname != null">
+        statusName,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="statusname != null">
+        #{statusname,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.StuStatusSet">
+    <!--@mbg.generated-->
+    update stuStatusSet
+    <set>
+      <if test="statusname != null">
+        statusName = #{statusname,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where statusId = #{statusid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.StuStatusSet">
+    <!--@mbg.generated-->
+    update stuStatusSet
+    set statusName = #{statusname,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where statusId = #{statusid,jdbcType=INTEGER}
+  </update>
+</mapper>

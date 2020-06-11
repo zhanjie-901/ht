@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.SystemLogMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.SystemLog">
+    <!--@mbg.generated-->
+    <!--@Table systemLog-->
+    <id column="logId" jdbcType="INTEGER" property="logid" />
+    <result column="empId" jdbcType="INTEGER" property="empid" />
+    <result column="ipAddr" jdbcType="VARCHAR" property="ipaddr" />
+    <result column="optime" jdbcType="VARCHAR" property="optime" />
+    <result column="tables" jdbcType="VARCHAR" property="tables" />
+    <result column="msg" jdbcType="VARCHAR" property="msg" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    logId, empId, ipAddr, optime, `tables`, msg
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from systemLog
+    where logId = #{logid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from systemLog
+    where logId = #{logid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="logId" keyProperty="logid" parameterType="com.ht.bean.SystemLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into systemLog (empId, ipAddr, optime, 
+      `tables`, msg)
+    values (#{empid,jdbcType=INTEGER}, #{ipaddr,jdbcType=VARCHAR}, #{optime,jdbcType=VARCHAR}, 
+      #{tables,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="logId" keyProperty="logid" parameterType="com.ht.bean.SystemLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into systemLog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        empId,
+      </if>
+      <if test="ipaddr != null">
+        ipAddr,
+      </if>
+      <if test="optime != null">
+        optime,
+      </if>
+      <if test="tables != null">
+        `tables`,
+      </if>
+      <if test="msg != null">
+        msg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="ipaddr != null">
+        #{ipaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="optime != null">
+        #{optime,jdbcType=VARCHAR},
+      </if>
+      <if test="tables != null">
+        #{tables,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        #{msg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.SystemLog">
+    <!--@mbg.generated-->
+    update systemLog
+    <set>
+      <if test="empid != null">
+        empId = #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="ipaddr != null">
+        ipAddr = #{ipaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="optime != null">
+        optime = #{optime,jdbcType=VARCHAR},
+      </if>
+      <if test="tables != null">
+        `tables` = #{tables,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where logId = #{logid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.SystemLog">
+    <!--@mbg.generated-->
+    update systemLog
+    set empId = #{empid,jdbcType=INTEGER},
+      ipAddr = #{ipaddr,jdbcType=VARCHAR},
+      optime = #{optime,jdbcType=VARCHAR},
+      `tables` = #{tables,jdbcType=VARCHAR},
+      msg = #{msg,jdbcType=VARCHAR}
+    where logId = #{logid,jdbcType=INTEGER}
+  </update>
+</mapper>

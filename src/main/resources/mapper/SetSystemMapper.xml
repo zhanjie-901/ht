@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.SetSystemMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.SetSystem">
+    <!--@mbg.generated-->
+    <!--@Table SetSystem-->
+    <id column="setId" jdbcType="INTEGER" property="setid" />
+    <result column="appName" jdbcType="VARCHAR" property="appname" />
+    <result column="appUrl" jdbcType="VARCHAR" property="appurl" />
+    <result column="appUrl2" jdbcType="VARCHAR" property="appurl2" />
+    <result column="appVersion" jdbcType="VARCHAR" property="appversion" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    setId, appName, appUrl, appUrl2, appVersion
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SetSystem
+    where setId = #{setid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from SetSystem
+    where setId = #{setid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="setId" keyProperty="setid" parameterType="com.ht.bean.SetSystem" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into SetSystem (appName, appUrl, appUrl2, 
+      appVersion)
+    values (#{appname,jdbcType=VARCHAR}, #{appurl,jdbcType=VARCHAR}, #{appurl2,jdbcType=VARCHAR}, 
+      #{appversion,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="setId" keyProperty="setid" parameterType="com.ht.bean.SetSystem" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into SetSystem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appname != null">
+        appName,
+      </if>
+      <if test="appurl != null">
+        appUrl,
+      </if>
+      <if test="appurl2 != null">
+        appUrl2,
+      </if>
+      <if test="appversion != null">
+        appVersion,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appname != null">
+        #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="appurl != null">
+        #{appurl,jdbcType=VARCHAR},
+      </if>
+      <if test="appurl2 != null">
+        #{appurl2,jdbcType=VARCHAR},
+      </if>
+      <if test="appversion != null">
+        #{appversion,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.SetSystem">
+    <!--@mbg.generated-->
+    update SetSystem
+    <set>
+      <if test="appname != null">
+        appName = #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="appurl != null">
+        appUrl = #{appurl,jdbcType=VARCHAR},
+      </if>
+      <if test="appurl2 != null">
+        appUrl2 = #{appurl2,jdbcType=VARCHAR},
+      </if>
+      <if test="appversion != null">
+        appVersion = #{appversion,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where setId = #{setid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.SetSystem">
+    <!--@mbg.generated-->
+    update SetSystem
+    set appName = #{appname,jdbcType=VARCHAR},
+      appUrl = #{appurl,jdbcType=VARCHAR},
+      appUrl2 = #{appurl2,jdbcType=VARCHAR},
+      appVersion = #{appversion,jdbcType=VARCHAR}
+    where setId = #{setid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.EmailMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Email">
+    <!--@mbg.generated-->
+    <!--@Table email-->
+    <id column="emailId" jdbcType="INTEGER" property="emailid" />
+    <result column="empId" jdbcType="VARCHAR" property="empid" />
+    <result column="receId" jdbcType="VARCHAR" property="receid" />
+    <result column="topic" jdbcType="VARCHAR" property="topic" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="sendtime" jdbcType="TIMESTAMP" property="sendtime" />
+    <result column="isRead" jdbcType="INTEGER" property="isread" />
+    <result column="image" jdbcType="LONGVARCHAR" property="image" />
+    <result column="oldFileName" jdbcType="VARCHAR" property="oldfilename" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    emailId, empId, receId, topic, content, sendtime, isRead, image, oldFileName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from email
+    where emailId = #{emailid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from email
+    where emailId = #{emailid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="emailId" keyProperty="emailid" parameterType="com.ht.bean.Email" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into email (empId, receId, topic, 
+      content, sendtime, isRead, 
+      image, oldFileName)
+    values (#{empid,jdbcType=VARCHAR}, #{receid,jdbcType=VARCHAR}, #{topic,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR}, #{sendtime,jdbcType=TIMESTAMP}, #{isread,jdbcType=INTEGER}, 
+      #{image,jdbcType=LONGVARCHAR}, #{oldfilename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="emailId" keyProperty="emailid" parameterType="com.ht.bean.Email" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        empId,
+      </if>
+      <if test="receid != null">
+        receId,
+      </if>
+      <if test="topic != null">
+        topic,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="sendtime != null">
+        sendtime,
+      </if>
+      <if test="isread != null">
+        isRead,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="oldfilename != null">
+        oldFileName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="receid != null">
+        #{receid,jdbcType=VARCHAR},
+      </if>
+      <if test="topic != null">
+        #{topic,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sendtime != null">
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="oldfilename != null">
+        #{oldfilename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Email">
+    <!--@mbg.generated-->
+    update email
+    <set>
+      <if test="empid != null">
+        empId = #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="receid != null">
+        receId = #{receid,jdbcType=VARCHAR},
+      </if>
+      <if test="topic != null">
+        topic = #{topic,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sendtime != null">
+        sendtime = #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isread != null">
+        isRead = #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="oldfilename != null">
+        oldFileName = #{oldfilename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where emailId = #{emailid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Email">
+    <!--@mbg.generated-->
+    update email
+    set empId = #{empid,jdbcType=VARCHAR},
+      receId = #{receid,jdbcType=VARCHAR},
+      topic = #{topic,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR},
+      sendtime = #{sendtime,jdbcType=TIMESTAMP},
+      isRead = #{isread,jdbcType=INTEGER},
+      image = #{image,jdbcType=LONGVARCHAR},
+      oldFileName = #{oldfilename,jdbcType=VARCHAR}
+    where emailId = #{emailid,jdbcType=INTEGER}
+  </update>
+</mapper>

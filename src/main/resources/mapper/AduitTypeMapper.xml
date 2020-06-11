@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.AduitTypeMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.AduitType">
+    <!--@mbg.generated-->
+    <!--@Table aduitType-->
+    <id column="aduitTypeid" jdbcType="INTEGER" property="aduittypeid" />
+    <result column="aduitTypeName" jdbcType="VARCHAR" property="aduittypename" />
+    <result column="Depid" jdbcType="INTEGER" property="depid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    aduitTypeid, aduitTypeName, Depid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from aduitType
+    where aduitTypeid = #{aduittypeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from aduitType
+    where aduitTypeid = #{aduittypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="aduitTypeid" keyProperty="aduittypeid" parameterType="com.ht.bean.AduitType" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into aduitType (aduitTypeName, Depid)
+    values (#{aduittypename,jdbcType=VARCHAR}, #{depid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="aduitTypeid" keyProperty="aduittypeid" parameterType="com.ht.bean.AduitType" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into aduitType
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aduittypename != null">
+        aduitTypeName,
+      </if>
+      <if test="depid != null">
+        Depid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aduittypename != null">
+        #{aduittypename,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        #{depid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.AduitType">
+    <!--@mbg.generated-->
+    update aduitType
+    <set>
+      <if test="aduittypename != null">
+        aduitTypeName = #{aduittypename,jdbcType=VARCHAR},
+      </if>
+      <if test="depid != null">
+        Depid = #{depid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where aduitTypeid = #{aduittypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.AduitType">
+    <!--@mbg.generated-->
+    update aduitType
+    set aduitTypeName = #{aduittypename,jdbcType=VARCHAR},
+      Depid = #{depid,jdbcType=INTEGER}
+    where aduitTypeid = #{aduittypeid,jdbcType=INTEGER}
+  </update>
+</mapper>

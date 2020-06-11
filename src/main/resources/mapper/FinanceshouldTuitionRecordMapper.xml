@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.FinanceshouldTuitionRecordMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.FinanceshouldTuitionRecord">
+    <!--@mbg.generated-->
+    <!--@Table financeshouldTuitionRecord-->
+    <id column="financeId" jdbcType="INTEGER" property="financeid" />
+    <result column="financedate" jdbcType="VARCHAR" property="financedate" />
+    <result column="stuid" jdbcType="INTEGER" property="stuid" />
+    <result column="termId" jdbcType="INTEGER" property="termid" />
+    <result column="receipt" jdbcType="VARCHAR" property="receipt" />
+    <result column="financeType" jdbcType="INTEGER" property="financetype" />
+    <result column="factMoney" jdbcType="FLOAT" property="factmoney" />
+    <result column="empid" jdbcType="INTEGER" property="empid" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="Invalid" jdbcType="INTEGER" property="invalid" />
+    <result column="tuitionTypeId" jdbcType="INTEGER" property="tuitiontypeid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    financeId, financedate, stuid, termId, receipt, financeType, factMoney, empid, remark, 
+    Invalid, tuitionTypeId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from financeshouldTuitionRecord
+    where financeId = #{financeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from financeshouldTuitionRecord
+    where financeId = #{financeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="financeId" keyProperty="financeid" parameterType="com.ht.bean.FinanceshouldTuitionRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into financeshouldTuitionRecord (financedate, stuid, termId, 
+      receipt, financeType, factMoney, 
+      empid, remark, Invalid, 
+      tuitionTypeId)
+    values (#{financedate,jdbcType=VARCHAR}, #{stuid,jdbcType=INTEGER}, #{termid,jdbcType=INTEGER}, 
+      #{receipt,jdbcType=VARCHAR}, #{financetype,jdbcType=INTEGER}, #{factmoney,jdbcType=FLOAT}, 
+      #{empid,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{invalid,jdbcType=INTEGER}, 
+      #{tuitiontypeid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="financeId" keyProperty="financeid" parameterType="com.ht.bean.FinanceshouldTuitionRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into financeshouldTuitionRecord
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="financedate != null">
+        financedate,
+      </if>
+      <if test="stuid != null">
+        stuid,
+      </if>
+      <if test="termid != null">
+        termId,
+      </if>
+      <if test="receipt != null">
+        receipt,
+      </if>
+      <if test="financetype != null">
+        financeType,
+      </if>
+      <if test="factmoney != null">
+        factMoney,
+      </if>
+      <if test="empid != null">
+        empid,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="invalid != null">
+        Invalid,
+      </if>
+      <if test="tuitiontypeid != null">
+        tuitionTypeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="financedate != null">
+        #{financedate,jdbcType=VARCHAR},
+      </if>
+      <if test="stuid != null">
+        #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="termid != null">
+        #{termid,jdbcType=INTEGER},
+      </if>
+      <if test="receipt != null">
+        #{receipt,jdbcType=VARCHAR},
+      </if>
+      <if test="financetype != null">
+        #{financetype,jdbcType=INTEGER},
+      </if>
+      <if test="factmoney != null">
+        #{factmoney,jdbcType=FLOAT},
+      </if>
+      <if test="empid != null">
+        #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="invalid != null">
+        #{invalid,jdbcType=INTEGER},
+      </if>
+      <if test="tuitiontypeid != null">
+        #{tuitiontypeid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.FinanceshouldTuitionRecord">
+    <!--@mbg.generated-->
+    update financeshouldTuitionRecord
+    <set>
+      <if test="financedate != null">
+        financedate = #{financedate,jdbcType=VARCHAR},
+      </if>
+      <if test="stuid != null">
+        stuid = #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="termid != null">
+        termId = #{termid,jdbcType=INTEGER},
+      </if>
+      <if test="receipt != null">
+        receipt = #{receipt,jdbcType=VARCHAR},
+      </if>
+      <if test="financetype != null">
+        financeType = #{financetype,jdbcType=INTEGER},
+      </if>
+      <if test="factmoney != null">
+        factMoney = #{factmoney,jdbcType=FLOAT},
+      </if>
+      <if test="empid != null">
+        empid = #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="invalid != null">
+        Invalid = #{invalid,jdbcType=INTEGER},
+      </if>
+      <if test="tuitiontypeid != null">
+        tuitionTypeId = #{tuitiontypeid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where financeId = #{financeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.FinanceshouldTuitionRecord">
+    <!--@mbg.generated-->
+    update financeshouldTuitionRecord
+    set financedate = #{financedate,jdbcType=VARCHAR},
+      stuid = #{stuid,jdbcType=INTEGER},
+      termId = #{termid,jdbcType=INTEGER},
+      receipt = #{receipt,jdbcType=VARCHAR},
+      financeType = #{financetype,jdbcType=INTEGER},
+      factMoney = #{factmoney,jdbcType=FLOAT},
+      empid = #{empid,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      Invalid = #{invalid,jdbcType=INTEGER},
+      tuitionTypeId = #{tuitiontypeid,jdbcType=INTEGER}
+    where financeId = #{financeid,jdbcType=INTEGER}
+  </update>
+</mapper>

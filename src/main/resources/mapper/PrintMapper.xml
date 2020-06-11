@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.PrintMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Print">
+    <!--@mbg.generated-->
+    <!--@Table Print-->
+    <id column="printId" jdbcType="INTEGER" property="printid" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    printId, `state`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Print
+    where printId = #{printid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from Print
+    where printId = #{printid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="printId" keyProperty="printid" parameterType="com.ht.bean.Print" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Print (`state`)
+    values (#{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="printId" keyProperty="printid" parameterType="com.ht.bean.Print" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Print
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="state != null">
+        `state`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Print">
+    <!--@mbg.generated-->
+    update Print
+    <set>
+      <if test="state != null">
+        `state` = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where printId = #{printid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Print">
+    <!--@mbg.generated-->
+    update Print
+    set `state` = #{state,jdbcType=INTEGER}
+    where printId = #{printid,jdbcType=INTEGER}
+  </update>
+</mapper>

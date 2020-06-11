@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.WeekArrangeMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.WeekArrange">
+    <!--@mbg.generated-->
+    <!--@Table weekArrange-->
+    <id column="weekArrangeid" jdbcType="INTEGER" property="weekarrangeid" />
+    <result column="weekArrangeName" jdbcType="VARCHAR" property="weekarrangename" />
+    <result column="ranges" jdbcType="VARCHAR" property="ranges" />
+    <result column="week" jdbcType="VARCHAR" property="week" />
+    <result column="empId" jdbcType="VARCHAR" property="empid" />
+    <result column="orderId" jdbcType="INTEGER" property="orderid" />
+    <result column="duty" jdbcType="INTEGER" property="duty" />
+    <result column="startTime" jdbcType="VARCHAR" property="starttime" />
+    <result column="endTime" jdbcType="VARCHAR" property="endtime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    weekArrangeid, weekArrangeName, ranges, week, empId, orderId, duty, startTime, endTime, 
+    remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from weekArrange
+    where weekArrangeid = #{weekarrangeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from weekArrange
+    where weekArrangeid = #{weekarrangeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="weekArrangeid" keyProperty="weekarrangeid" parameterType="com.ht.bean.WeekArrange" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into weekArrange (weekArrangeName, ranges, week, 
+      empId, orderId, duty, 
+      startTime, endTime, remark
+      )
+    values (#{weekarrangename,jdbcType=VARCHAR}, #{ranges,jdbcType=VARCHAR}, #{week,jdbcType=VARCHAR}, 
+      #{empid,jdbcType=VARCHAR}, #{orderid,jdbcType=INTEGER}, #{duty,jdbcType=INTEGER}, 
+      #{starttime,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="weekArrangeid" keyProperty="weekarrangeid" parameterType="com.ht.bean.WeekArrange" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into weekArrange
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="weekarrangename != null">
+        weekArrangeName,
+      </if>
+      <if test="ranges != null">
+        ranges,
+      </if>
+      <if test="week != null">
+        week,
+      </if>
+      <if test="empid != null">
+        empId,
+      </if>
+      <if test="orderid != null">
+        orderId,
+      </if>
+      <if test="duty != null">
+        duty,
+      </if>
+      <if test="starttime != null">
+        startTime,
+      </if>
+      <if test="endtime != null">
+        endTime,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="weekarrangename != null">
+        #{weekarrangename,jdbcType=VARCHAR},
+      </if>
+      <if test="ranges != null">
+        #{ranges,jdbcType=VARCHAR},
+      </if>
+      <if test="week != null">
+        #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="empid != null">
+        #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="duty != null">
+        #{duty,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.WeekArrange">
+    <!--@mbg.generated-->
+    update weekArrange
+    <set>
+      <if test="weekarrangename != null">
+        weekArrangeName = #{weekarrangename,jdbcType=VARCHAR},
+      </if>
+      <if test="ranges != null">
+        ranges = #{ranges,jdbcType=VARCHAR},
+      </if>
+      <if test="week != null">
+        week = #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="empid != null">
+        empId = #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        orderId = #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="duty != null">
+        duty = #{duty,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null">
+        startTime = #{starttime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null">
+        endTime = #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where weekArrangeid = #{weekarrangeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.WeekArrange">
+    <!--@mbg.generated-->
+    update weekArrange
+    set weekArrangeName = #{weekarrangename,jdbcType=VARCHAR},
+      ranges = #{ranges,jdbcType=VARCHAR},
+      week = #{week,jdbcType=VARCHAR},
+      empId = #{empid,jdbcType=VARCHAR},
+      orderId = #{orderid,jdbcType=INTEGER},
+      duty = #{duty,jdbcType=INTEGER},
+      startTime = #{starttime,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where weekArrangeid = #{weekarrangeid,jdbcType=INTEGER}
+  </update>
+</mapper>

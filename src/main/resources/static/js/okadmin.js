@@ -8,7 +8,7 @@ layui.use(["element", "layer", "okUtils", "okTab", "okLayer"], function () {
     var okLayer = layui.okLayer;
 
     var okTab = layui.okTab({
-        url: "data/navs.json",
+        url: "../data/navs.json",
         openTabNum: 30, // 允许同时选项卡的个数
         parseData: function (data) { // 如果返回的结果和navs.json中的数据结构一致可省略这个方法
             return data;
@@ -303,11 +303,7 @@ layui.use(["element", "layer", "okUtils", "okTab", "okLayer"], function () {
     /**
      * 退出操作
      */
-    $("#logout").click(function () {
-        okLayer.confirm("确定要退出吗？", function (index) {
-            window.location = "pages/login.html";
-        });
-    });
+
 
     /**
      * 锁定账户

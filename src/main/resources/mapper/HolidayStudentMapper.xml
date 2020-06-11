@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.HolidayStudentMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.HolidayStudent">
+    <!--@mbg.generated-->
+    <!--@Table holidayStudent-->
+    <id column="holidayid" jdbcType="INTEGER" property="holidayid" />
+    <result column="Studentld" jdbcType="INTEGER" property="studentld" />
+    <result column="holidayDay" jdbcType="DECIMAL" property="holidayday" />
+    <result column="startTime" jdbcType="TIMESTAMP" property="starttime" />
+    <result column="endTime" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="Title" jdbcType="VARCHAR" property="title" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="Status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    holidayid, Studentld, holidayDay, startTime, endTime, Title, Remark, `Status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from holidayStudent
+    where holidayid = #{holidayid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from holidayStudent
+    where holidayid = #{holidayid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="holidayid" keyProperty="holidayid" parameterType="com.ht.bean.HolidayStudent" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into holidayStudent (Studentld, holidayDay, startTime, 
+      endTime, Title, Remark, 
+      `Status`)
+    values (#{studentld,jdbcType=INTEGER}, #{holidayday,jdbcType=DECIMAL}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{title,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="holidayid" keyProperty="holidayid" parameterType="com.ht.bean.HolidayStudent" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into holidayStudent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="studentld != null">
+        Studentld,
+      </if>
+      <if test="holidayday != null">
+        holidayDay,
+      </if>
+      <if test="starttime != null">
+        startTime,
+      </if>
+      <if test="endtime != null">
+        endTime,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="status != null">
+        `Status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="studentld != null">
+        #{studentld,jdbcType=INTEGER},
+      </if>
+      <if test="holidayday != null">
+        #{holidayday,jdbcType=DECIMAL},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.HolidayStudent">
+    <!--@mbg.generated-->
+    update holidayStudent
+    <set>
+      <if test="studentld != null">
+        Studentld = #{studentld,jdbcType=INTEGER},
+      </if>
+      <if test="holidayday != null">
+        holidayDay = #{holidayday,jdbcType=DECIMAL},
+      </if>
+      <if test="starttime != null">
+        startTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `Status` = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where holidayid = #{holidayid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.HolidayStudent">
+    <!--@mbg.generated-->
+    update holidayStudent
+    set Studentld = #{studentld,jdbcType=INTEGER},
+      holidayDay = #{holidayday,jdbcType=DECIMAL},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      Title = #{title,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR},
+      `Status` = #{status,jdbcType=VARCHAR}
+    where holidayid = #{holidayid,jdbcType=INTEGER}
+  </update>
+</mapper>

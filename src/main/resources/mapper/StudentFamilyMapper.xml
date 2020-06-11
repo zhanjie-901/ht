@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.StudentFamilyMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.StudentFamily">
+    <!--@mbg.generated-->
+    <!--@Table studentFamily-->
+    <id column="familyid" jdbcType="INTEGER" property="familyid" />
+    <result column="stuid" jdbcType="INTEGER" property="stuid" />
+    <result column="familyname" jdbcType="VARCHAR" property="familyname" />
+    <result column="relation" jdbcType="VARCHAR" property="relation" />
+    <result column="familyhone" jdbcType="VARCHAR" property="familyhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    familyid, stuid, familyname, relation, familyhone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from studentFamily
+    where familyid = #{familyid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from studentFamily
+    where familyid = #{familyid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="familyid" keyProperty="familyid" parameterType="com.ht.bean.StudentFamily" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into studentFamily (stuid, familyname, relation, 
+      familyhone)
+    values (#{stuid,jdbcType=INTEGER}, #{familyname,jdbcType=VARCHAR}, #{relation,jdbcType=VARCHAR}, 
+      #{familyhone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="familyid" keyProperty="familyid" parameterType="com.ht.bean.StudentFamily" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into studentFamily
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stuid != null">
+        stuid,
+      </if>
+      <if test="familyname != null">
+        familyname,
+      </if>
+      <if test="relation != null">
+        relation,
+      </if>
+      <if test="familyhone != null">
+        familyhone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stuid != null">
+        #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="familyname != null">
+        #{familyname,jdbcType=VARCHAR},
+      </if>
+      <if test="relation != null">
+        #{relation,jdbcType=VARCHAR},
+      </if>
+      <if test="familyhone != null">
+        #{familyhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.StudentFamily">
+    <!--@mbg.generated-->
+    update studentFamily
+    <set>
+      <if test="stuid != null">
+        stuid = #{stuid,jdbcType=INTEGER},
+      </if>
+      <if test="familyname != null">
+        familyname = #{familyname,jdbcType=VARCHAR},
+      </if>
+      <if test="relation != null">
+        relation = #{relation,jdbcType=VARCHAR},
+      </if>
+      <if test="familyhone != null">
+        familyhone = #{familyhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where familyid = #{familyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.StudentFamily">
+    <!--@mbg.generated-->
+    update studentFamily
+    set stuid = #{stuid,jdbcType=INTEGER},
+      familyname = #{familyname,jdbcType=VARCHAR},
+      relation = #{relation,jdbcType=VARCHAR},
+      familyhone = #{familyhone,jdbcType=VARCHAR}
+    where familyid = #{familyid,jdbcType=INTEGER}
+  </update>
+</mapper>

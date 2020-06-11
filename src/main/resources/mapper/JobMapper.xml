@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.JobMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Job">
+    <!--@mbg.generated-->
+    <!--@Table job-->
+    <id column="Jobid" jdbcType="INTEGER" property="jobid" />
+    <result column="Empid" jdbcType="VARCHAR" property="empid" />
+    <result column="companyName" jdbcType="VARCHAR" property="companyname" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="startDate" jdbcType="TIMESTAMP" property="startdate" />
+    <result column="endDate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Jobid, Empid, companyName, `degree`, startDate, endDate, reason, Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from job
+    where Jobid = #{jobid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from job
+    where Jobid = #{jobid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Jobid" keyProperty="jobid" parameterType="com.ht.bean.Job" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into job (Empid, companyName, `degree`, 
+      startDate, endDate, reason, 
+      Remark)
+    values (#{empid,jdbcType=VARCHAR}, #{companyname,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, 
+      #{startdate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, #{reason,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Jobid" keyProperty="jobid" parameterType="com.ht.bean.Job" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into job
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        Empid,
+      </if>
+      <if test="companyname != null">
+        companyName,
+      </if>
+      <if test="degree != null">
+        `degree`,
+      </if>
+      <if test="startdate != null">
+        startDate,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Job">
+    <!--@mbg.generated-->
+    update job
+    <set>
+      <if test="empid != null">
+        Empid = #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        companyName = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        `degree` = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        startDate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null">
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Jobid = #{jobid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Job">
+    <!--@mbg.generated-->
+    update job
+    set Empid = #{empid,jdbcType=VARCHAR},
+      companyName = #{companyname,jdbcType=VARCHAR},
+      `degree` = #{degree,jdbcType=VARCHAR},
+      startDate = #{startdate,jdbcType=TIMESTAMP},
+      endDate = #{enddate,jdbcType=TIMESTAMP},
+      reason = #{reason,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR}
+    where Jobid = #{jobid,jdbcType=INTEGER}
+  </update>
+</mapper>

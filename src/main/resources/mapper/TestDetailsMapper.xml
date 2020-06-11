@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.TestDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.TestDetails">
+    <!--@mbg.generated-->
+    <!--@Table testDetails-->
+    <id column="sdetailsId" jdbcType="INTEGER" property="sdetailsid" />
+    <result column="detailsName" jdbcType="VARCHAR" property="detailsname" />
+    <result column="paymentMethod" jdbcType="VARCHAR" property="paymentmethod" />
+    <result column="empId" jdbcType="INTEGER" property="empid" />
+    <result column="profession" jdbcType="VARCHAR" property="profession" />
+    <result column="totMoney" jdbcType="DECIMAL" property="totmoney" />
+    <result column="adultId" jdbcType="INTEGER" property="adultid" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="tuitionTypeId" jdbcType="INTEGER" property="tuitiontypeid" />
+    <result column="typeStatus" jdbcType="VARCHAR" property="typestatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    sdetailsId, detailsName, paymentMethod, empId, profession, totMoney, adultId, remark, 
+    tuitionTypeId, typeStatus
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from testDetails
+    where sdetailsId = #{sdetailsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from testDetails
+    where sdetailsId = #{sdetailsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="sdetailsId" keyProperty="sdetailsid" parameterType="com.ht.bean.TestDetails" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into testDetails (detailsName, paymentMethod, empId, 
+      profession, totMoney, adultId, 
+      remark, tuitionTypeId, typeStatus
+      )
+    values (#{detailsname,jdbcType=VARCHAR}, #{paymentmethod,jdbcType=VARCHAR}, #{empid,jdbcType=INTEGER}, 
+      #{profession,jdbcType=VARCHAR}, #{totmoney,jdbcType=DECIMAL}, #{adultid,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{tuitiontypeid,jdbcType=INTEGER}, #{typestatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="sdetailsId" keyProperty="sdetailsid" parameterType="com.ht.bean.TestDetails" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into testDetails
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="detailsname != null">
+        detailsName,
+      </if>
+      <if test="paymentmethod != null">
+        paymentMethod,
+      </if>
+      <if test="empid != null">
+        empId,
+      </if>
+      <if test="profession != null">
+        profession,
+      </if>
+      <if test="totmoney != null">
+        totMoney,
+      </if>
+      <if test="adultid != null">
+        adultId,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="tuitiontypeid != null">
+        tuitionTypeId,
+      </if>
+      <if test="typestatus != null">
+        typeStatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="detailsname != null">
+        #{detailsname,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentmethod != null">
+        #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="empid != null">
+        #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="profession != null">
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="totmoney != null">
+        #{totmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="adultid != null">
+        #{adultid,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="tuitiontypeid != null">
+        #{tuitiontypeid,jdbcType=INTEGER},
+      </if>
+      <if test="typestatus != null">
+        #{typestatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.TestDetails">
+    <!--@mbg.generated-->
+    update testDetails
+    <set>
+      <if test="detailsname != null">
+        detailsName = #{detailsname,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentmethod != null">
+        paymentMethod = #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="empid != null">
+        empId = #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="profession != null">
+        profession = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="totmoney != null">
+        totMoney = #{totmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="adultid != null">
+        adultId = #{adultid,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="tuitiontypeid != null">
+        tuitionTypeId = #{tuitiontypeid,jdbcType=INTEGER},
+      </if>
+      <if test="typestatus != null">
+        typeStatus = #{typestatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sdetailsId = #{sdetailsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.TestDetails">
+    <!--@mbg.generated-->
+    update testDetails
+    set detailsName = #{detailsname,jdbcType=VARCHAR},
+      paymentMethod = #{paymentmethod,jdbcType=VARCHAR},
+      empId = #{empid,jdbcType=INTEGER},
+      profession = #{profession,jdbcType=VARCHAR},
+      totMoney = #{totmoney,jdbcType=DECIMAL},
+      adultId = #{adultid,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      tuitionTypeId = #{tuitiontypeid,jdbcType=INTEGER},
+      typeStatus = #{typestatus,jdbcType=VARCHAR}
+    where sdetailsId = #{sdetailsid,jdbcType=INTEGER}
+  </update>
+</mapper>

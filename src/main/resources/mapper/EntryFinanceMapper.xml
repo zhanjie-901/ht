@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.EntryFinanceMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.EntryFinance">
+    <!--@mbg.generated-->
+    <!--@Table entryFinance-->
+    <id column="entryId" jdbcType="INTEGER" property="entryid" />
+    <result column="entryTime" jdbcType="TIMESTAMP" property="entrytime" />
+    <result column="enrollmentId" jdbcType="INTEGER" property="enrollmentid" />
+    <result column="reviewer" jdbcType="VARCHAR" property="reviewer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    entryId, entryTime, enrollmentId, reviewer
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from entryFinance
+    where entryId = #{entryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from entryFinance
+    where entryId = #{entryid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="entryId" keyProperty="entryid" parameterType="com.ht.bean.EntryFinance" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into entryFinance (entryTime, enrollmentId, reviewer
+      )
+    values (#{entrytime,jdbcType=TIMESTAMP}, #{enrollmentid,jdbcType=INTEGER}, #{reviewer,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="entryId" keyProperty="entryid" parameterType="com.ht.bean.EntryFinance" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into entryFinance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="entrytime != null">
+        entryTime,
+      </if>
+      <if test="enrollmentid != null">
+        enrollmentId,
+      </if>
+      <if test="reviewer != null">
+        reviewer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="entrytime != null">
+        #{entrytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enrollmentid != null">
+        #{enrollmentid,jdbcType=INTEGER},
+      </if>
+      <if test="reviewer != null">
+        #{reviewer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.EntryFinance">
+    <!--@mbg.generated-->
+    update entryFinance
+    <set>
+      <if test="entrytime != null">
+        entryTime = #{entrytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enrollmentid != null">
+        enrollmentId = #{enrollmentid,jdbcType=INTEGER},
+      </if>
+      <if test="reviewer != null">
+        reviewer = #{reviewer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where entryId = #{entryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.EntryFinance">
+    <!--@mbg.generated-->
+    update entryFinance
+    set entryTime = #{entrytime,jdbcType=TIMESTAMP},
+      enrollmentId = #{enrollmentid,jdbcType=INTEGER},
+      reviewer = #{reviewer,jdbcType=VARCHAR}
+    where entryId = #{entryid,jdbcType=INTEGER}
+  </update>
+</mapper>

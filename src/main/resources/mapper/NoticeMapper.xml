@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.NoticeMapper">
+  <resultMap id="BaseResultMap" type="com.ht.bean.Notice">
+    <!--@mbg.generated-->
+    <!--@Table notice-->
+    <id column="noticeId" jdbcType="INTEGER" property="noticeid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="noticeType" jdbcType="INTEGER" property="noticetype" />
+    <result column="empid" jdbcType="VARCHAR" property="empid" />
+    <result column="noticeTime" jdbcType="TIMESTAMP" property="noticetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    noticeId, title, content, noticeType, empid, noticeTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from notice
+    where noticeId = #{noticeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from notice
+    where noticeId = #{noticeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="noticeId" keyProperty="noticeid" parameterType="com.ht.bean.Notice" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into notice (title, content, noticeType, 
+      empid, noticeTime)
+    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{noticetype,jdbcType=INTEGER}, 
+      #{empid,jdbcType=VARCHAR}, #{noticetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="noticeId" keyProperty="noticeid" parameterType="com.ht.bean.Notice" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into notice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="noticetype != null">
+        noticeType,
+      </if>
+      <if test="empid != null">
+        empid,
+      </if>
+      <if test="noticetime != null">
+        noticeTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="noticetype != null">
+        #{noticetype,jdbcType=INTEGER},
+      </if>
+      <if test="empid != null">
+        #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="noticetime != null">
+        #{noticetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.bean.Notice">
+    <!--@mbg.generated-->
+    update notice
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="noticetype != null">
+        noticeType = #{noticetype,jdbcType=INTEGER},
+      </if>
+      <if test="empid != null">
+        empid = #{empid,jdbcType=VARCHAR},
+      </if>
+      <if test="noticetime != null">
+        noticeTime = #{noticetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where noticeId = #{noticeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.bean.Notice">
+    <!--@mbg.generated-->
+    update notice
+    set title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      noticeType = #{noticetype,jdbcType=INTEGER},
+      empid = #{empid,jdbcType=VARCHAR},
+      noticeTime = #{noticetime,jdbcType=TIMESTAMP}
+    where noticeId = #{noticeid,jdbcType=INTEGER}
+  </update>
+</mapper>
