@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}">
+    <script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+</head>
+<body>
+<a type="button" class="layui-btn" th:href="@{/emp/toempAdd}">添加</a>
+<div class="layui-form">
+    <table class="layui-table">
+
+        <thead>
+        <tr>
+            <th>员工编号</th>
+            <th>员工姓名</th>
+            <th>部门</th>
+            <th>职务</th>
+            <th>性别</th>
+            <th>手机号码</th>
+            <th>家庭地址</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p:${list}">
+            <td th:text="${p.empid}"></td>
+            <td th:text="${p.empname}"></td>
+            <td th:switch="${p.depid}">
+                <p th:case="'0'">宏图软件</p>
+                <p th:case="'1'">教研部</p>
+                <p th:case="'2'">行政部</p>
+                <p th:case="'3'">后勤部</p>
+                <p th:case="'4'">学工部</p>
+                <p th:case="'5'">招生部</p>
+            </td>
+            <td th:text="${p.postname}"></td>
+            <td th:text="${p.sex}"></td>
+            <td th:text="${p.phone}"></td>
+            <td th:text="${p.address}"></td>
+            <td ><a th:href="@{/emp/toupd(id=${p.empid})}">修改</a>  <a th:href="@{/emp/del(empid=${p.empid})}" onclick="return confirm('是否删除？');">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        function f(){
+            if(confirm("确实要删除吗?")){
+
+            }else {
+                return;
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

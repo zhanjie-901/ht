@@ -51,7 +51,9 @@
   select * from emp where empname=#{empname} and password=#{password}
 </select>
 
-
+  <select id="selList" resultType="com.ht.bean.Emp">
+     select * from emp;
+  </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     <!--@mbg.generated-->

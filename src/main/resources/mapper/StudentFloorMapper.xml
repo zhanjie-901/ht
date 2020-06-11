@@ -18,6 +18,10 @@
     from studentFloor
     where floorId = #{floorid,jdbcType=INTEGER}
   </select>
+  <select id="selAll" resultType="com.ht.bean.StudentFloor">
+    select * from studentFloor
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
     delete from studentFloor

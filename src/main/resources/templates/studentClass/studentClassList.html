@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="inStudent::tamllindex"></div>
+</head>
+<body>
+<table class="layui-hide" id="studentClass" lay-filter="studentClass" ></table>
+
+<br/>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <!--<button class="layui-btn layui-btn-sm" lay-event="add">新增</button>-->
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+
+<script th:inline="none">
+
+    layui.use('table', function () {
+            var table = layui.table;
+
+        table.render({
+            elem: '#studentClass'
+            , url: '/studentClass/list'
+            , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            , defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+                title: '提示'
+                , layEvent: 'LAYTABLE_TIPS'
+                , icon: 'layui-icon-tips'
+            }]
+            ,limit:5//默认为10
+            , title: '课程类别数据表'
+            , cols: [[
+                { type: 'checkbox', fixed: 'left' }
+                , { field: 'classid', title: '序号', fixed: 'left', unresize: true, sort: true,align:'center'}
+                , { field: 'classno', title: '班级编号',edit: 'text', align:'center' }
+                , { field: 'classname', title: '班级名称',edit: 'text',  align:'center'}
+                , { field: 'teacher', title: '授课老师',edit: 'text',  align:'center'}
+                , { field: 'classteacher', title: '班主任',edit: 'text',  align:'center'}
+                , { field: 'classtype', title: '班级类别',edit: 'text',  align:'center' ,templet: function (dd) {
+
+                        if (dd.classtype == '1'){
+                            return '中技'
+                        }else if(dd.classtype == '2'){
+                            return '高技'
+                        }else if(dd.classtype == '3'){
+                            return '3+2'
+                        }
+                    }}
+                , { field: 'falled', title: '级别',edit: 'text',  align:'center'}
+                , { field: 'majorid', title: '专业名称',edit: 'text',  align:'center',templet: function (d){
+                        if (d.majorid == 1){
+                            return '计算机程序设计'
+                        }
+                    }}
+                , { fixed: 'right', title: '操作', toolbar: '#barDemo',align:'center' }
+                , { field: 'remark', title: '说明',edit: 'text',  align:'center'}
+            ]]
+            , page: true
+        });
+
+        //头工具栏事件
+        table.on('toolbar(studentClass)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'add':
+            };
+        });
+    });
+
+</script>
+</body>
+</html>

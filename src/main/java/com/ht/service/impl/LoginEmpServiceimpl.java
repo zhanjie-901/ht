@@ -2,13 +2,13 @@ package com.ht.service.impl;
 
 import com.ht.bean.Emp;
 import com.ht.dao.EmpDao;
-import com.ht.service.EmpService;
+import com.ht.service.LoginEmpService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 @Service
-public class EmpServiceimpl implements EmpService {
+public class LoginEmpServiceimpl implements LoginEmpService {
 
     @Resource
     EmpDao dao;

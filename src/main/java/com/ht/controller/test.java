@@ -2,21 +2,19 @@ package com.ht.controller;
 
 
 import com.ht.bean.Emp;
-import com.ht.service.EmpService;
+import com.ht.service.LoginEmpService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/ht")
 public class test {
     @Resource
-    private EmpService emp;
+    private LoginEmpService emp;
 
     @RequestMapping("/tologin")
     public String tologin(){
